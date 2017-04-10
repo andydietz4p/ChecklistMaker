@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('checklist', 'ChecklistController');
+Route::resource('checklistitem', 'ItemController');
+Route::post('/checklistitemorder/{checklistid}', 'ChecklistOrderController@update');
